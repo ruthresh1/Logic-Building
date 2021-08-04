@@ -74,15 +74,19 @@ Enter 3 numbers
 
 4. Basics of Random number generation, usually it's sudo random
 ```java
+import java.util.Random;
+
 public class Day4Problem4Driver {
         public static void main(String args[]) {
 
                 Scanner scan = new Scanner(System.in);
                 System.out.println("Generating a random number between 0 and 100\n");
-                System.out.println(generateRandom());
+                System.out.println(generateRandom(0, 100));
         }
-	static int generateRandom() {
-	}
+	      static int generateRandom(int low, int high) {
+          Random random = new Random();
+          return random.nextInt(high - low) + low;
+        }
 }
 // Output
 Generating a random number between 0 and 100
