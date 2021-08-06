@@ -9,92 +9,124 @@
 
 ### Solution
 
-1. 
+1. Binary to decimal conversion
 ```java
 public class Day6Problem1Driver {
-        public static void main(String args[]) {
+    public static void main(String args[]) {
 
-                Scanner scan = new Scanner(System.in);
-		System.out.println("Enter the number of days\n");
-		int days = scan.nextInt();
-		int numberOfDaysInAYear = 365;
-		int numberOfDaysInAWeek = 7;
-		int years = days/numberOfDaysInAYear;
-		int weeks = (days % numberOfDaysInAYear) / numberOfDaysInAWeek;
-		days = days % numberOfDaysInAWeek;
-		System.out.println("years: "+ years+ ", weeks:"+ weeks+ ", days: "+ days);
-	}
+         Scanner scan = new Scanner(System.in);
+	 System.out.println("Enter number in binary\n");
+	 String binary = scan.nextLine();
+	 int ans = 0, place = 0;
+	 for(int i = binary.length() - 1; i >= 0; i--) {
+	     if(binary.charAt(i) == '1') 
+	         ans += Math.pow(2, place);
+	     place++;
+	 }
+	 System.out.println(ans);
+    }
 }
 // Output
-Enter the number of days
+Enter number in binary
+1010
+10
 ```
 
-2. Similar to the last problem
+2. Decimal to binary conversion
 ```java
 public class Day6Problem2Driver {
-        public static void main(String args[]) {
+    public static void main(String args[]) {
 
-                Scanner scan = new Scanner(System.in);
-                System.out.println("Enter measurement in inches\n");
-                int inches = scan.nextInt();
-		int oneFeetInInches = 12;
-		int oneYardInInches = 36;
-		int yards = inches / oneYardInInches;
-		int feet = (inches % oneYardInInches) / oneFeetInInches;
-		int calInches = inches % oneFeetInInches;
-		System.out.println("yards: "+ yards+ ", feet: "+ feet+ ", inches"+ calInches);
-        }
+        Scanner scan = new Scanner(System.in);
+	System.out.println("Enter a number\n");
+        int num = scan.nextInt();
+	StringBuilder binary = new StringBuilder();
+	while(num > 0) {
+	    binary.append(num % 2);
+	    num = num / 2;
+	}
+	binary.reverse(); // to reverse the order
+	System.out.println("Binary: "+ binary.toString());
+    }
 }
 // Output
-Enter measurement in inches
+Enter a number
+10
+Binary: 1010
 ```
 
-3. 
+3. Binary to octal conversion
 ```java
 public class Day6Problem3Driver {
-        public static void main(String args[]) {
+    public static void main(String args[]) {
 
-                Scanner scan = new Scanner(System.in);
-                System.out.println("Enter n and x\n");
-                int n = scan.nextInt();
-		int x = scan.nextInt();
-		int ans = 1;
-		int num = x; 
-		while(num >= 1) {
-			ans = ans * n;
-			num = num - 1;
-		}
-		System.out.println(n+ " ^ "+ x+ " = "+ ans);
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter a binary number\n");
+        int binary = scan.nextInt();
+	int decimal = 0, place = 0;
+        for(int i = binary.length() - 1; i >= 0; i--) {
+            if(binary.charAt(i) == '1')
+                decimal += Math.pow(2, place);
+            place++;
         }
+	int octal = 0;
+        while(decimal != 0) {
+            octal += decimal % 8;
+            decimal /= 8;
+        }
+	System.out.println("Octal: "+ ans);
+    }
 }
 // Output
+Enter a binary number
+1010
+8
 ```
 
-4. Finding sqare root of a number, returns -1 if its is not a perfect square
+4. Octal to decimal conversion
 ```java
 public class Day6Problem4Driver {
-        public static void main(String args[]) {
+    public static void main(String args[]) {
 
-                Scanner scan = new Scanner(System.in);
-                System.out.println("Enter a number\n");
-		int num = sc.nextInt();
-                System.out.println(findSqareRoot(num));
-        }
+        Scanner scan = new Scanner(System.in);
+	System.out.println("Enter a number in octal\n");
+	int octal = sc.nextInt();
+	int decimal = 0;
+	int exp = 0;
+	while(octal > 0) {
+	    decimal += Math.pow(8, exp);
+	    octal = octal / 10;
+	    exp++;
+	}
+        System.out.println(decimal);
+    }
 }
 // Output
+Enter a number in octal
+8
+10
+
 ```
 
-5. Solving a quadratic equation of the form
+5. Decimal to octal conversion
 ```java
 public class Day6Problem5Driver {
-	public static void main(String args[]) {
+    public static void main(String args[]) {
 
-		Scanner scan = new Scanner(System.in);
-		System.out.println("Enter a, b, c\n");
-		double a = scan.nextDouble();
+	Scanner scan = new Scanner(System.in);
+	System.out.println("Enter a number\n");
+	int decimal = scan.nextInt();
+	int octal = 0;
+	while(decimal != 0) {
+	    octal += decimal % 8;
+	    decimal /= 8;
 	}
+	System.out.println("Octal: "+ octal);
+    }
 }
 // Output
-
+Enter a number
+8
+Octal: 10
 ```
 
