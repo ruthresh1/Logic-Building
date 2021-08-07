@@ -20,7 +20,7 @@ public class Day6Problem1Driver {
 	 int ans = 0, place = 0;
 	 for(int i = binary.length() - 1; i >= 0; i--) {
 	     if(binary.charAt(i) == '1') 
-	         ans += Math.pow(2, place);
+	         ans += MathUtil.pow(2, place);
 	     place++;
 	 }
 	 System.out.println(ans);
@@ -66,7 +66,7 @@ public class Day6Problem3Driver {
 	int decimal = 0, place = 0;
         for(int i = binary.length() - 1; i >= 0; i--) {
             if(binary.charAt(i) == '1')
-                decimal += Math.pow(2, place);
+                decimal += MathUtil.pow(2, place);
             place++;
         }
 	int octal = 0;
@@ -94,7 +94,7 @@ public class Day6Problem4Driver {
 	int decimal = 0;
 	int exp = 0;
 	while(octal > 0) {
-	    decimal += Math.pow(8, exp);
+	    decimal += MathUtil.pow(8, exp);
 	    octal = octal / 10;
 	    exp++;
 	}
@@ -130,3 +130,16 @@ Enter a number
 Octal: 10
 ```
 
+MathUtil Implementation
+```java
+public class MathUtil {
+    public static int pow(int num, int exp) {
+        int result = 1;
+	while(exp != 0) {
+	    result = result * num;
+	    exp--;
+	}
+	return result;
+    }
+}
+```
