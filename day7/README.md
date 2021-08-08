@@ -114,19 +114,24 @@ Enter students marks
 Grade: B
 ```
 
-4. 
+4. Sum of squares of natural numbers, given a number
+formula sum = (n * (n + 1) * (2*n + 1)) / 6;
+
 ```java
 public class Day7Problem4Driver {
     public static void main(String args[]) {
 
          Scanner scan = new Scanner(System.in);
-         System.out.println("Enter number in binary\n");
-         String binary = scan.nextLine();
-         System.out.println(ans);
+         System.out.println("Enter a number\n");
+         int num = scan.nextInt();
+	 int sum = (n * (n + 1) * (2 * n + 1)) / 6;
+         System.out.println("Sum of squares "+ sum);
     }
 }
 // Output
-Enter number in binary
+Enter a number
+4
+Sum of squares 30
 ```
 
 5. 
