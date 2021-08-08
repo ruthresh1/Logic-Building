@@ -134,19 +134,33 @@ Enter a number
 Sum of squares 30
 ```
 
-5. 
+5. a number is unique if it has no repeating characters 
 ```java
 public class Day7Problem5Driver {
     public static void main(String args[]) {
 
          Scanner scan = new Scanner(System.in);
-         System.out.println("Enter number in binary\n");
-         String binary = scan.nextLine();
-         System.out.println(ans);
+         System.out.println("Enter a number\n");
+         String num = scan.nextLine();
+	 boolean unique = true;
+	 Set<Character> set = new HashSet<>();
+	 for(char c : num.toCharArray()) {
+	     if(set.contains(c)) {
+	         unique = false;
+	     } else {
+	         set.add(c);
+	     }
+	 }
+	 if(unique) 
+             System.out.println("The number is unique");
+	 else 
+	     System.out.println("The number is not unique");
     }
 }
 // Output
-Enter number in binary
+Enter a number
+12
+The number is unique
 ```
 
 
