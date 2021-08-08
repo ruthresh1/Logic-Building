@@ -91,13 +91,27 @@ public class Day7Problem3Driver {
     public static void main(String args[]) {
 
          Scanner scan = new Scanner(System.in);
-         System.out.println("Enter number in binary\n");
-         String binary = scan.nextLine();
-         System.out.println(ans);
+         System.out.println("Enter students marks\n");
+         int marks = scan.nextInt();
+	 char grade = 'F';
+	 if(marks >= 90) {
+	     grade = 'A';
+	 } else if(marks >= 75 && marks < 90) {
+	     grade = 'B';
+	 } else if(marks >= 65 && marks < 75) {
+	     grade = 'C';
+	 } else if(marks >= 55 && marks < 65) {
+	     grade = 'D';
+	 } else if(marks >= 45 && marks < 55) {
+	     grade = 'E';
+	 }
+         System.out.println("Grade: "+ grade);
     }
 }
 // Output
-Enter number in binary
+Enter students marks
+80
+Grade: B
 ```
 
 4. 
