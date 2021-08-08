@@ -8,7 +8,7 @@
 5. Check if a given number is unique or not
 
 ### Solutions
-1.
+1. A simple use case of determining input and performing operations accordingly
 ```java
 public class Day7Problem1Driver {
     public static void main(String args[]) {
@@ -56,22 +56,36 @@ to divide enter /
 2 * 3 = 6
 ```
 
-2. 
+2. A number is perfect if the sum of its positive divisors excluding the number itself is equal to that number
+Eg. 28
+1 + 2 + 4 + 7 + 14 = 28
 ```java
 public class Day7Problem2Driver {
     public static void main(String args[]) {
 
          Scanner scan = new Scanner(System.in);
-         System.out.println("Enter number in binary\n");
-         String binary = scan.nextLine();
-         System.out.println(ans);
+         System.out.println("Enter a number\n");
+         int num = scan.nextInt();
+	 int sum = 0;
+	 for(int i = 1; i < num; i++) {
+	     if(num % i == 0) {
+	         sum += i;
+	     }
+	 }
+	 if(num == sum) {
+             System.out.println(num+ " is a perfect number);
+	 } else {
+	     System.out.println(num+ " is not a perfect number);
+	 }
     }
 }
 // Output
-Enter number in binary
+Enter a number
+28
+28 is a perfect number
 ```
 
-3. 
+3. Determining range
 ```java
 public class Day7Problem3Driver {
     public static void main(String args[]) {
